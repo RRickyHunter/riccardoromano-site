@@ -2,6 +2,33 @@
   "cleanUrls": true,
   "headers": [
     {
+      "source": "/card",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex"
+        }
+      ]
+    },
+    {
+      "source": "/card/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex"
+        }
+      ]
+    },
+    {
+      "source": "/api/card-contact",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow, noarchive, nosnippet, noimageindex"
+        }
+      ]
+    },
+    {
       "source": "/c/7fK29mQx84Nz-ricky",
       "headers": [
         {
