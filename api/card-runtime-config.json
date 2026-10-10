@@ -1,9 +1,0 @@
-{
-  "business_card": {
-    "crm_context": "Business card digitale",
-    "updated_at": "2026-10-10T07:42:00Z",
-    "updated_by": "Selen",
-    "source": "local-default",
-    "notes": "Fallback locale. In production usare CARD_RUNTIME_CONFIG_URL verso config dinamica Google/Control Center senza deploy."
-  }
-}
