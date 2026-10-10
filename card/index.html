@@ -259,7 +259,7 @@
 
   <script>
     const CARD = {
-      endpoint: 'https://booking-backend-riccardoromano.vercel.app/api/card-contact',
+      endpoint: location.hostname.endsWith('.vercel.app') ? 'https://booking-backend-1owkrbvqg-riccardoromano.vercel.app/api/card-contact' : 'https://booking-backend-riccardoromano.vercel.app/api/card-contact',
       turnstileSiteKey: '0x4AAAAAADoozULU4eecn7bG',
       events: ['card_view','contact_form_open','contact_submitted','booking_clicked','vcard_downloaded','whatsapp_clicked']
     };
@@ -324,10 +324,11 @@
       if (!data.email.trim() && !data.phone.trim()) { statusEl.textContent = 'Inserisci almeno email o telefono.'; return; }
       submitting = true; submitBtn.disabled = true; statusEl.textContent = 'Invio in corso…';
       try {
+        const requestId = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
         const res = await fetch(CARD.endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'X-Card-Request-Id': crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) },
-          body: JSON.stringify({ ...data, turnstileToken })
+          headers: { 'Content-Type': 'application/json', 'X-Card-Request-Id': requestId },
+          body: JSON.stringify({ ...data, requestId, turnstileToken })
         });
         const payload = await res.json().catch(() => ({}));
         if (!res.ok || !payload.ok) throw new Error(payload.error || 'Errore di invio');
