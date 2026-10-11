@@ -60,9 +60,9 @@
               <p class="form-note">Nome obbligatorio. Inserisci almeno email o telefono. Privacy: <a href="https://pages.riccardoromano.biz/privacy-policy/" target="_blank" rel="noopener">informativa ufficiale</a>.</p>
               <p class="status" id="formStatus" role="status" aria-live="polite"></p>
             </form></div></div>
-            <div class="success-box" id="successBox" aria-live="polite"><strong>Perfetto, restiamo in contatto.</strong><span>Salvati il mio</span><a class="cta primary" href="https://riccardoromano-site.vercel.app/c/7fK29mQx84Nz-ricky/riccardo-romano.vcf.txt" download="riccardo-romano.vcf" data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a></div>
+            <div class="success-box" id="successBox" aria-live="polite"><strong>Perfetto, restiamo in contatto.</strong><span>Salvati il mio</span><a class="cta primary" href="#" data-vcard-download data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a></div>
             <a class="cta primary" href="https://pages.riccardoromano.biz/" data-track="booking_clicked"><span><strong>Prenota una call</strong><br><small>pagina prenotazione</small></span><span class="chev">↗</span></a>
-            <a class="cta secondary" href="https://riccardoromano-site.vercel.app/c/7fK29mQx84Nz-ricky/riccardo-romano.vcf.txt" download="riccardo-romano.vcf" data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a>
+            <a class="cta secondary" href="#" data-vcard-download data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a>
             <a class="cta secondary" href="https://wa.me/393498870469" target="_blank" rel="noopener" data-track="whatsapp_clicked"><span><strong>WhatsApp</strong><br><small>chat vuota</small></span><span class="chev">↗</span></a>
           </div>
         </aside>
@@ -73,6 +73,9 @@
   <script>
     const CONFIG={apiBaseUrl:"https://booking-backend-riccardoromano.vercel.app",cardContactEndpoint:"/api/card-contact"};
     const track=(name)=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:name});};
+    const VCARD_TEXT='BEGIN:VCARD\nVERSION:3.0\nN:Romano;Riccardo;;;\nFN:Riccardo Romano\nTITLE:Business Architect & AI Coach\nTEL;TYPE=CELL,VOICE:+393498870469\nEMAIL:ciao@riccardoromano.biz\nURL:https://RiccardoRomano.me\nURL:https://aarrowdt.com\nEND:VCARD';
+    function downloadVcard(e){e.preventDefault();const blob=new Blob([VCARD_TEXT.replace(/\n/g,"\r\n")],{type:"text/vcard;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="riccardo-romano.vcf";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);}
+    document.querySelectorAll("[data-vcard-download]").forEach(el=>el.addEventListener("click",downloadVcard));
     track("card_view");
     document.querySelectorAll("[data-track]").forEach(el=>el.addEventListener("click",()=>track(el.dataset.track)));
     const card=document.getElementById("businessCard");let startX=0,startY=0;
