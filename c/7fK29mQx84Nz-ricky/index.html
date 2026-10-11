@@ -4,731 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Riccardo Romano — Business Card</title>
-  <meta name="description" content="Business card personale di Riccardo Romano, Business Architect & AI Coach." />
+  <meta name="description" content="Business card digitale di Riccardo Romano, Business Architect & AI Coach." />
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex" />
   <meta property="og:title" content="Riccardo Romano — Business Architect & AI Coach" />
-  <meta property="og:description" content="Business card personale di Riccardo Romano." />
-  <meta property="og:image" content="https://pages.riccardoromano.biz/assets/og-home-riccardo-romano.jpg" />
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content="https://pages.riccardoromano.biz/c/7fK29mQx84Nz-ricky" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="https://pages.riccardoromano.biz/c/7fK29mQx84Nz-ricky/" />
   <link rel="icon" href="/assets/favicon.ico" />
-  <link rel="apple-touch-icon" href="/assets/logo-riccardo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <style>
-    :root {
-      --gold: #ffb400;
-      --orange: #ff7a00;
-      --ink: #10203e;
-      --blue: #2e6bff;
-      --blue-deep: #07142d;
-      --glass: rgba(255, 255, 255, .1);
-      --line: rgba(255, 255, 255, .18);
-      --muted: rgba(255, 255, 255, .72);
-      --shadow: 0 26px 80px rgba(0, 0, 0, .34);
-      --card-ratio: 1.68;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { min-height: 100%; background: var(--blue-deep); }
-
-    body {
-      min-height: 100svh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: #fff;
-      background:
-        radial-gradient(circle at 18% 2%, rgba(255, 180, 0, .26), transparent 26rem),
-        radial-gradient(circle at 88% 7%, rgba(46, 107, 255, .46), transparent 24rem),
-        radial-gradient(circle at top, #2e6bff 0%, #123c8f 30%, #07142d 78%);
-      line-height: 1.45;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size: 52px 52px;
-      mask-image: radial-gradient(circle at center, black, transparent 78%);
-    }
-
-    button, input { font: inherit; }
-
-    .page {
-      width: min(100%, 1120px);
-      min-height: 100svh;
-      margin: 0 auto;
-      padding: max(18px, env(safe-area-inset-top)) 18px max(18px, env(safe-area-inset-bottom));
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      gap: 18px;
-    }
-
-    .topbar, .footer-note {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: rgba(255,255,255,.58);
-      font-size: .78rem;
-    }
-
-    .topbar img {
-      width: 128px;
-      height: auto;
-      filter: brightness(0) invert(1) drop-shadow(0 10px 26px rgba(0,0,0,.22));
-      opacity: .92;
-    }
-
-    .stage {
-      display: grid;
-      place-items: center;
-      gap: 18px;
-      width: 100%;
-    }
-
-    .intro {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      padding: .42rem .78rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,.1);
-      color: rgba(255,255,255,.82);
-      font-size: .75rem;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      backdrop-filter: blur(12px);
-      margin-bottom: .8rem;
-    }
-
-    .intro h1 {
-      font-size: clamp(1.55rem, 6vw, 2.65rem);
-      line-height: 1.04;
-      letter-spacing: -.045em;
-      font-weight: 900;
-      margin-bottom: .45rem;
-    }
-
-    .intro h1 span {
-      background: linear-gradient(90deg, var(--gold), var(--orange));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .intro p { color: var(--muted); font-size: clamp(.92rem, 2.6vw, 1.03rem); }
-
-    .card-wrap {
-      width: min(92vw, 430px);
-      perspective: 1300px;
-    }
-
-    .business-card {
-      width: 100%;
-      aspect-ratio: var(--card-ratio);
-      position: relative;
-      border: 0;
-      border-radius: 30px;
-      background: transparent;
-      color: inherit;
-      cursor: pointer;
-      display: block;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .business-card:focus-visible {
-      outline: 3px solid rgba(255, 180, 0, .95);
-      outline-offset: 8px;
-    }
-
-    .card-inner {
-      position: absolute;
-      inset: 0;
-      transform-style: preserve-3d;
-      transition: transform .72s cubic-bezier(.2, .75, .2, 1);
-      will-change: transform;
-    }
-
-    .business-card.is-flipped .card-inner { transform: rotateY(180deg); }
-
-    .card-face {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border-radius: 30px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      box-shadow: var(--shadow), inset 0 0 0 1px rgba(255,255,255,.18);
-      isolation: isolate;
-    }
-
-    .card-face::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 18% 12%, rgba(255, 180, 0, .36), transparent 26%),
-        radial-gradient(circle at 88% 86%, rgba(46, 107, 255, .36), transparent 30%),
-        linear-gradient(138deg, rgba(255,255,255,.98), rgba(238,244,255,.92) 43%, rgba(217,229,255,.9));
-    }
-
-    .card-face::after {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      z-index: -1;
-      border-radius: 29px;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,.82), rgba(255,255,255,.12) 38%, rgba(255,255,255,.72)),
-        radial-gradient(circle at 100% 0%, rgba(255,122,0,.18), transparent 42%);
-      pointer-events: none;
-    }
-
-    .card-back {
-      transform: rotateY(180deg);
-      padding: 20px;
-      gap: 12px;
-    }
-
-    .card-front {
-      padding: clamp(20px, 5.5vw, 28px);
-      color: var(--ink);
-    }
-
-    .front-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .front-logo { width: clamp(126px, 40%, 168px); height: auto; display: block; }
-
-    .photo {
-      width: clamp(76px, 23vw, 102px);
-      aspect-ratio: 1;
-      border-radius: 28px;
-      overflow: hidden;
-      border: 3px solid rgba(255,180,0,.95);
-      box-shadow: 0 15px 34px rgba(16,32,62,.18);
-      background: linear-gradient(135deg, rgba(46,107,255,.18), rgba(255,180,0,.16));
-      flex: 0 0 auto;
-    }
-
-    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-    .front-main { padding-top: 16px; }
-
-    .front-main h2 {
-      font-size: clamp(1.75rem, 7.8vw, 2.45rem);
-      line-height: .95;
-      letter-spacing: -.055em;
-      font-weight: 900;
-      margin-bottom: .55rem;
-    }
-
-    .role {
-      display: inline-flex;
-      align-items: center;
-      min-height: 34px;
-      padding: .42rem .72rem;
-      border-radius: 999px;
-      color: #fff;
-      background: linear-gradient(135deg, #173f96, #2e6bff);
-      font-size: .83rem;
-      font-weight: 800;
-      box-shadow: 0 14px 28px rgba(46,107,255,.24);
-    }
-
-    .payoff {
-      max-width: 310px;
-      color: rgba(16,32,62,.72);
-      font-weight: 600;
-      font-size: .95rem;
-      margin-top: .85rem;
-    }
-
-    .front-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      color: rgba(16,32,62,.62);
-      font-size: .78rem;
-      font-weight: 700;
-    }
-
-    .accent-line { width: 76px; height: 4px; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--orange)); }
-
-    .back-kicker { color: rgba(16,32,62,.6); font-size: .73rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
-
-    .card-back h2 { color: var(--ink); font-size: 1.34rem; letter-spacing: -.035em; line-height: 1; }
-
-    .actions {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 2px;
-    }
-
-    .action {
-      min-height: 74px;
-      padding: 11px;
-      border: 1px solid rgba(16,32,62,.12);
-      border-radius: 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 7px;
-      color: var(--ink);
-      background: rgba(255,255,255,.64);
-      text-align: left;
-      box-shadow: 0 12px 24px rgba(16,32,62,.08);
-      cursor: pointer;
-      transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
-    }
-
-    .action:hover, .action:focus-visible { background: #fff; transform: translateY(-2px); box-shadow: 0 18px 28px rgba(16,32,62,.13); }
-    .action:focus-visible { outline: 3px solid rgba(255,180,0,.75); outline-offset: 2px; }
-
-    .action .icon {
-      width: 31px;
-      height: 31px;
-      border-radius: 11px;
-      display: grid;
-      place-items: center;
-      color: var(--ink);
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      font-weight: 900;
-      box-shadow: 0 10px 20px rgba(255,122,0,.2);
-    }
-
-    .action strong { font-size: .78rem; line-height: 1.12; letter-spacing: -.015em; }
-    .action span:last-child { color: rgba(16,32,62,.55); font-size: .67rem; font-weight: 700; line-height: 1.18; }
-
-    .back-note {
-      color: rgba(16,32,62,.56);
-      font-size: .7rem;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .flip-hint {
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: .48rem .75rem;
-      background: rgba(255,255,255,.1);
-      color: rgba(255,255,255,.72);
-      font-size: .8rem;
-      font-weight: 800;
-      backdrop-filter: blur(12px);
-      transition: opacity .25s ease, transform .25s ease;
-    }
-
-    .flip-hint.is-muted { opacity: .38; transform: scale(.97); }
-
-    .status {
-      min-height: 22px;
-      color: rgba(255,255,255,.78);
-      font-size: .84rem;
-      text-align: center;
-    }
-
-    .panel {
-      position: fixed;
-      inset: 0;
-      z-index: 10;
-      display: none;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 16px;
-      background: rgba(4, 10, 24, .62);
-      backdrop-filter: blur(12px);
-    }
-
-    .panel.is-open { display: flex; }
-
-    .panel-card {
-      width: min(100%, 580px);
-      max-height: min(88svh, 760px);
-      overflow: auto;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(14,29,61,.98), rgba(9,18,39,.98));
-      box-shadow: 0 30px 90px rgba(0,0,0,.42);
-      padding: 20px;
-    }
-
-    .panel-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; margin-bottom: 16px; }
-    .panel-head h2 { font-size: 1.35rem; line-height: 1.04; letter-spacing: -.035em; margin-bottom: .35rem; }
-    .panel-head p { color: var(--muted); font-size: .88rem; }
-
-    .close-btn {
-      width: 42px;
-      height: 42px;
-      flex: 0 0 auto;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 14px;
-      color: #fff;
-      background: rgba(255,255,255,.08);
-      cursor: pointer;
-    }
-
-    .close-btn:focus-visible, .submit-btn:focus-visible { outline: 3px solid rgba(255,180,0,.85); outline-offset: 3px; }
-
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .field { display: grid; gap: 6px; }
-    .field.full { grid-column: 1 / -1; }
-    label { color: rgba(255,255,255,.78); font-size: .78rem; font-weight: 800; }
-    input {
-      width: 100%;
-      min-height: 50px;
-      border: 1px solid rgba(255,255,255,.15);
-      border-radius: 15px;
-      padding: 0 13px;
-      color: #fff;
-      background: rgba(255,255,255,.08);
-      outline: 0;
-    }
-    input::placeholder { color: rgba(255,255,255,.38); }
-    input:focus { border-color: rgba(255,180,0,.8); box-shadow: 0 0 0 4px rgba(255,180,0,.12); }
-
-    .submit-btn {
-      width: 100%;
-      min-height: 56px;
-      margin-top: 14px;
-      border: 0;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--gold), var(--orange));
-      color: var(--ink);
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 16px 34px rgba(255,122,0,.26);
-    }
-
-    .privacy-copy { color: rgba(255,255,255,.48); font-size: .74rem; margin-top: 12px; }
-    .success { display: none; margin-top: 14px; padding: 14px; border-radius: 16px; color: #d8ffe6; background: rgba(34,197,94,.14); border: 1px solid rgba(34,197,94,.28); font-weight: 800; }
-    .success.is-visible { display: block; }
-
-    @media (max-width: 430px) {
-      .page { padding-left: 14px; padding-right: 14px; gap: 14px; }
-      .topbar img { width: 112px; }
-      .card-wrap { width: min(94vw, 390px); }
-      .business-card, .card-face { border-radius: 25px; }
-      .card-face::after { border-radius: 24px; }
-      .card-front { padding: 19px; }
-      .card-back { padding: 15px; }
-      .actions { gap: 8px; }
-      .action { min-height: 72px; border-radius: 16px; padding: 9px; }
-      .action .icon { width: 28px; height: 28px; border-radius: 10px; }
-      .action strong { font-size: .72rem; }
-      .front-main { padding-top: 8px; }
-      .payoff { font-size: .86rem; }
-      .front-foot { font-size: .69rem; }
-      .panel { padding: 10px; }
-      .panel-card { padding: 16px; border-radius: 24px; }
-      .form-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (min-width: 860px) {
-      .stage { grid-template-columns: .85fr 1fr; align-items: center; }
-      .intro { text-align: left; margin: 0; }
-      .panel { align-items: center; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      .business-card.is-flipped .card-inner { transform: none; }
-      .business-card.is-flipped .card-front { display: none; }
-      .business-card.is-flipped .card-back { transform: none; }
-    }
+    :root{--gold:#ffb400;--orange:#ff7a00;--ink:#10203e;--blue:#2e6bff;--blue-deep:#07142d;--line:rgba(255,255,255,.16);--muted:rgba(255,255,255,.74);--card-ratio:1.7142857;--shadow:0 30px 80px rgba(0,0,0,.38)}
+    *{box-sizing:border-box;margin:0;padding:0} html{min-height:100%;background:var(--blue-deep);scroll-behavior:smooth} body{min-height:100svh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#fff;line-height:1.45;overflow-x:hidden;background:radial-gradient(circle at 18% 2%,rgba(255,180,0,.26),transparent 26rem),radial-gradient(circle at 88% 7%,rgba(46,107,255,.46),transparent 24rem),radial-gradient(circle at top,#2e6bff 0%,#123c8f 30%,#07142d 78%)}
+    body::before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(circle at center,black,transparent 78%)}
+    button,input{font:inherit} a{color:inherit}.page{position:relative;z-index:1;width:min(100%,1180px);min-height:100svh;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px max(16px,env(safe-area-inset-bottom));display:grid;grid-template-rows:1fr auto;gap:18px}.stage{display:grid;place-items:center;width:100%}.hero{width:100%;display:grid;grid-template-columns:minmax(420px,620px) minmax(320px,430px);align-items:center;justify-content:center;gap:clamp(28px,5vw,64px)}
+    .card-zone{width:100%;display:grid;justify-items:center;gap:18px}.card-wrap{width:min(100%,620px);perspective:1400px}.business-card{width:100%;aspect-ratio:var(--card-ratio);position:relative;border:0;border-radius:26px;background:transparent;color:inherit;cursor:pointer;display:block;touch-action:pan-y;-webkit-tap-highlight-color:transparent}.business-card:focus-visible{outline:3px solid rgba(255,180,0,.9);outline-offset:8px}.card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.2,.72,.2,1)}.business-card.is-flipped .card-inner{transform:rotateY(180deg)}@media (hover:hover) and (pointer:fine){.business-card:hover .card-inner{transform:rotateY(180deg)}}
+    .card-face{position:absolute;inset:0;overflow:hidden;border-radius:26px;backface-visibility:hidden;background:#fff;box-shadow:var(--shadow);border:3px solid var(--orange)}.card-face::after{content:"";position:absolute;inset:0;border-radius:23px;pointer-events:none;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -16px 34px rgba(0,0,0,.06)}.card-front img{width:100%;height:100%;display:block;object-fit:contain;background:#fff}.card-back{transform:rotateY(180deg);background:linear-gradient(135deg,#fff 0%,#f7f8fc 54%,#eef2ff 100%);color:var(--ink);display:grid;grid-template-columns:.92fr 1.08fr;align-items:center;padding:clamp(18px,3vw,34px);gap:22px}.back-portrait{align-self:stretch;border-radius:22px;background:linear-gradient(160deg,rgba(46,107,255,.1),rgba(255,122,0,.12));border:1px solid rgba(16,32,62,.12);display:grid;place-items:center;position:relative;overflow:hidden}.placeholder-person{width:72%;aspect-ratio:.72;border-radius:999px 999px 30px 30px;background:linear-gradient(150deg,rgba(16,32,62,.16),rgba(46,107,255,.22));position:relative}.placeholder-person::after{content:"→";position:absolute;right:-22%;top:38%;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;color:var(--orange)}.back-copy h2{font-size:clamp(1.55rem,3vw,2.55rem);line-height:.98;letter-spacing:-.06em;font-weight:900;margin-bottom:.7rem}.back-copy p{font-size:clamp(.9rem,1.4vw,1.04rem);color:#41516f;font-weight:650}.back-copy small{display:block;margin-top:1rem;color:#6b7894;font-weight:750}.mobile-arrow{display:none;color:var(--orange);font-size:2.7rem;line-height:1;font-weight:900;animation:downPulse 1.45s ease-in-out infinite;text-shadow:0 10px 24px rgba(255,122,0,.32)}@keyframes downPulse{0%,100%{transform:translateY(0);opacity:.78}50%{transform:translateY(8px);opacity:1}}
+    .actions-panel{width:100%;max-width:430px}.actions-title{font-weight:900;font-size:clamp(1.75rem,3vw,2.45rem);line-height:1;letter-spacing:-.055em;margin-bottom:.65rem}.actions-title span{color:var(--gold)}.actions-sub{color:var(--muted);margin-bottom:1rem}.cta-list{display:grid;gap:10px}.cta{width:100%;min-height:58px;border:1px solid rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);color:#fff;text-decoration:none;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}.cta:hover,.cta:focus-visible{transform:translateY(-2px);background:rgba(255,255,255,.15);border-color:rgba(255,180,0,.45);outline:0}.cta strong{font-size:.96rem}.cta small{color:rgba(255,255,255,.62);font-weight:700}.cta.primary{background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--ink);border-color:rgba(255,180,0,.5);box-shadow:0 16px 34px rgba(255,122,0,.24)}.cta.primary small{color:rgba(16,32,62,.72)}.cta.secondary{min-height:54px}.chev{font-weight:900;font-size:1.2rem}.contact-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .32s ease;margin-top:-4px}.contact-panel.is-open{grid-template-rows:1fr;margin-top:0}.contact-panel-inner{overflow:hidden}.form-card{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border-radius:18px;padding:14px;margin-top:8px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field.full{grid-column:1/-1}label{display:block;font-size:.74rem;font-weight:850;color:rgba(255,255,255,.74);margin:0 0 5px 2px}input{width:100%;height:48px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:rgba(3,10,26,.34);color:#fff;padding:0 12px;outline:0}input:focus{border-color:rgba(255,180,0,.78);box-shadow:0 0 0 4px rgba(255,180,0,.12)}.hp{position:absolute;left:-9999px}.turnstile-wrap{min-height:65px;margin-top:10px;display:flex;align-items:center}.form-actions{display:flex;gap:10px;margin-top:10px}.submit,.close-form{border:0;border-radius:999px;min-height:48px;font-weight:900;cursor:pointer}.submit{flex:1;background:linear-gradient(135deg,var(--gold),var(--orange));color:var(--ink)}.close-form{padding:0 16px;background:rgba(255,255,255,.12);color:#fff}.form-note,.status{font-size:.77rem;color:rgba(255,255,255,.58);margin-top:10px}.status{font-weight:800}.success-box{display:none;border:1px solid rgba(34,197,94,.32);background:rgba(34,197,94,.14);border-radius:18px;padding:14px;margin-top:10px}.success-box.is-visible{display:block}.success-box strong{display:block;color:#d8ffe6;margin-bottom:4px}.success-box .cta{margin-top:10px}.footer-note{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;color:rgba(255,255,255,.58);font-size:.82rem}.footer-note a{color:rgba(255,255,255,.72);text-decoration:none}.footer-note a:hover{text-decoration:underline}
+    @media (max-width:900px){.page{padding-top:18px}.hero{grid-template-columns:1fr;gap:14px;align-content:start}.card-wrap{width:min(96vw,520px)}.actions-panel{max-width:520px}.actions-title,.actions-sub{display:none}.mobile-arrow{display:block}.card-back{grid-template-columns:1fr;padding:18px;text-align:center}.back-portrait{min-height:118px}.placeholder-person{width:36%;max-width:120px}.placeholder-person::after{content:"↓";right:50%;top:auto;bottom:-38%;transform:translateX(50%)}.back-copy h2{font-size:clamp(1.45rem,8vw,2rem)}}
+    @media (max-width:560px){.page{padding-left:12px;padding-right:12px}.card-wrap{width:min(96vw,430px)}.business-card,.card-face{border-radius:20px}.card-face{border-width:2px}.card-face::after{border-radius:18px}.cta{border-radius:16px}.form-grid{grid-template-columns:1fr}.form-actions{flex-direction:column}.close-form{width:100%}.footer-note{font-size:.76rem}}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
   </style>
 </head>
 <body>
   <main class="page">
-    <header class="topbar" aria-label="Riccardo Romano">
-      <img src="/assets/logo-riccardo.png" alt="Riccardo Romano" />
-    </header>
-
-    <section class="stage" aria-labelledby="page-title">
-      <div class="intro">
-        <div class="eyebrow">Digital business card</div>
-        <h1 id="page-title">Riccardo Romano<br><span>Business Architect & AI Coach</span></h1>
-        <p>Una card personale per restare in contatto in modo semplice, veloce e ordinato.</p>
-      </div>
-
-      <div class="card-wrap">
-        <div class="business-card" id="businessCard" role="button" tabindex="0" aria-label="Gira la business card" aria-pressed="false">
-          <span class="card-inner">
-            <span class="card-face card-front" aria-hidden="false">
-              <span class="front-head">
-                <img class="front-logo" src="/assets/logo-riccardo.png" alt="" />
-                <span class="photo"><img src="/assets/riccardo-avatar.jpg" alt="Foto di Riccardo Romano" /></span>
+    <section class="stage" aria-label="Business card digitale Riccardo Romano">
+      <div class="hero">
+        <div class="card-zone">
+          <div class="card-wrap">
+            <button class="business-card" id="businessCard" type="button" aria-pressed="false" aria-label="Gira la business card" data-track="card_view">
+              <span class="card-inner">
+                <span class="card-face card-front"><picture><source srcset="assets/business-card-front.webp" type="image/webp"><img src="assets/business-card-front.png" alt="Fronte del biglietto da visita Riccardo Romano" width="2160" height="1260"></picture></span>
+                <span class="card-face card-back"><span class="back-portrait" aria-label="Placeholder foto Riccardo"><span class="placeholder-person" aria-hidden="true"></span></span><span class="back-copy"><h2>ORA TOCCA A TE.</h2><p>Lasciami i tuoi recapiti, prenota una call o salva il mio contatto.</p><small>Foto definitiva pronta per sostituzione asset: mobile ↓, desktop →.</small></span></span>
               </span>
-
-              <span class="front-main">
-                <h2>Riccardo<br>Romano</h2>
-                <span class="role">Business Architect & AI Coach</span>
-                <span class="payoff">Trasformo caos, idee e strumenti AI in sistemi chiari che lavorano davvero.</span>
-              </span>
-
-              <span class="front-foot">
-                <span class="accent-line" aria-hidden="true"></span>
-                <span>pages.riccardoromano.biz</span>
-              </span>
-            </span>
-
-            <span class="card-face card-back" aria-hidden="true">
-              <span>
-                <span class="back-kicker">Azioni rapide</span>
-                <h2>Come vuoi continuare?</h2>
-              </span>
-
-              <span class="actions" aria-label="Azioni disponibili">
-                <span class="action" role="button" tabindex="0" data-action="contact" aria-label="Aggiungimi ai contatti">
-                  <span class="icon">+</span>
-                  <strong>Aggiungimi ai contatti</strong>
-                  <span>vCard simulata</span>
-                </span>
-                <span class="action" role="button" tabindex="0" data-action="message" aria-label="Scrivimi un messaggio">
-                  <span class="icon">✉</span>
-                  <strong>Scrivimi un messaggio</strong>
-                  <span>link futuro</span>
-                </span>
-                <span class="action" role="button" tabindex="0" data-action="call" aria-label="Prenota una call">
-                  <span class="icon">↗</span>
-                  <strong>Prenota una call</strong>
-                  <span>calendario futuro</span>
-                </span>
-                <span class="action" role="button" tabindex="0" data-action="form" aria-label="Forniscimi i tuoi recapiti">
-                  <span class="icon">↘</span>
-                  <strong>Forniscimi i tuoi recapiti</strong>
-                  <span>form interno</span>
-                </span>
-              </span>
-
-              <span class="back-note">
-                <span>Riccardo Romano</span>
-                <span>tocca per tornare</span>
-              </span>
-            </span>
-          </span>
+            </button>
+          </div>
+          <div class="mobile-arrow" aria-hidden="true">↓</div>
         </div>
-
-        <div class="status" id="status" aria-live="polite"></div>
+        <aside class="actions-panel" id="azioni" aria-label="Azioni disponibili">
+          <h1 class="actions-title">ORA TOCCA <span>A TE.</span></h1>
+          <p class="actions-sub">Scegli il prossimo passo. Le prime due azioni sono quelle principali.</p>
+          <div class="cta-list">
+            <button class="cta primary" id="toggleContact" type="button" aria-expanded="false" aria-controls="contactPanel"><span><strong>Lasciami i tuoi recapiti</strong><br><small>ti ricontatto io</small></span><span class="chev" aria-hidden="true">⌄</span></button>
+            <div class="contact-panel" id="contactPanel" aria-hidden="true"><div class="contact-panel-inner"><form class="form-card" id="contactForm" novalidate>
+              <div class="form-grid">
+                <div class="field"><label for="firstName">Nome *</label><input id="firstName" name="firstName" autocomplete="given-name" required></div>
+                <div class="field"><label for="lastName">Cognome</label><input id="lastName" name="lastName" autocomplete="family-name"></div>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"></div>
+                <div class="field"><label for="phone">Telefono / WhatsApp</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+                <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+              </div>
+              <div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAADoozULU4eecn7bG" data-theme="dark"></div></div>
+              <div class="form-actions"><button class="submit" type="submit">Invia recapiti</button><button class="close-form" id="closeContact" type="button">Richiudi</button></div>
+              <p class="form-note">Nome obbligatorio. Inserisci almeno email o telefono. Privacy: <a href="https://pages.riccardoromano.biz/privacy-policy/" target="_blank" rel="noopener">informativa ufficiale</a>.</p>
+              <p class="status" id="formStatus" role="status" aria-live="polite"></p>
+            </form></div></div>
+            <div class="success-box" id="successBox" aria-live="polite"><strong>Perfetto, restiamo in contatto.</strong><span>Salvati il mio</span><a class="cta primary" href="riccardo-romano.vcf.txt" download="riccardo-romano.vcf" data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a></div>
+            <a class="cta primary" href="https://pages.riccardoromano.biz/" data-track="booking_clicked"><span><strong>Prenota una call</strong><br><small>pagina prenotazione</small></span><span class="chev">↗</span></a>
+            <a class="cta secondary" href="riccardo-romano.vcf.txt" download="riccardo-romano.vcf" data-track="vcard_downloaded"><span><strong>Salva il mio contatto</strong><br><small>vCard</small></span><span class="chev">↓</span></a>
+            <a class="cta secondary" href="https://wa.me/393498870469" target="_blank" rel="noopener" data-track="whatsapp_clicked"><span><strong>WhatsApp</strong><br><small>chat vuota</small></span><span class="chev">↗</span></a>
+          </div>
+        </aside>
       </div>
     </section>
-
-    <footer class="footer-note">
-      <span class="flip-hint" id="flipHint" aria-hidden="true">↻ Tocca per girare</span>
-    </footer>
+    <footer class="footer-note"><span>© 2026 Riccardo Romano</span><a href="https://pages.riccardoromano.biz/privacy-policy/" target="_blank" rel="noopener">Privacy</a></footer>
   </main>
-
-  <section class="panel" id="leadPanel" aria-hidden="true" aria-labelledby="form-title" role="dialog" aria-modal="true">
-    <div class="panel-card">
-      <div class="panel-head">
-        <div>
-          <h2 id="form-title">Lasciami i tuoi recapiti</h2>
-          <p>Compila i dati principali. Per ora è una submission simulata: non viene salvato nulla.</p>
-        </div>
-        <button class="close-btn" id="closePanel" type="button" aria-label="Torna alla card">×</button>
-      </div>
-
-      <form id="leadForm" novalidate>
-        <div class="form-grid">
-          <div class="field">
-            <label for="firstName">Nome *</label>
-            <input id="firstName" name="firstName" autocomplete="given-name" required />
-          </div>
-          <div class="field">
-            <label for="lastName">Cognome *</label>
-            <input id="lastName" name="lastName" autocomplete="family-name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
-          </div>
-          <div class="field">
-            <label for="phone">Telefono *</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required />
-          </div>
-          <div class="field">
-            <label for="company">Azienda</label>
-            <input id="company" name="company" autocomplete="organization" />
-          </div>
-          <div class="field">
-            <label for="role">Ruolo</label>
-            <input id="role" name="role" autocomplete="organization-title" />
-          </div>
-          <div class="field">
-            <label for="profession">Professione</label>
-            <input id="profession" name="profession" />
-          </div>
-          <div class="field">
-            <label for="website">Sito internet</label>
-            <input id="website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="https://" />
-          </div>
-        </div>
-
-        <button class="submit-btn" type="submit">Inviami i tuoi recapiti</button>
-        <p class="privacy-copy">Architettura pronta per CRM futuro: dati visibili + metadata evento/card centralizzati. Nessun dato viene inviato in questa versione.</p>
-        <div class="success" id="successMessage" role="status">Grazie! Ci sentiamo presto.</div>
-      </form>
-    </div>
-  </section>
-
   <script>
-    const cardConfig = {
-      cardId: '7fK29mQx84Nz-ricky',
-      source: 'business-card',
-      context: 'personal-networking',
-      event: 'placeholder-event',
-      campaign: 'placeholder-campaign'
-    };
-
-    const contactTemplate = {
-      firstName: 'Riccardo',
-      lastName: 'Romano',
-      role: 'Business Architect & AI Coach',
-      phone: '',
-      email: '',
-      website: 'https://pages.riccardoromano.biz/'
-    };
-
-    const card = document.getElementById('businessCard');
-    const hint = document.getElementById('flipHint');
-    const status = document.getElementById('status');
-    const panel = document.getElementById('leadPanel');
-    const closePanel = document.getElementById('closePanel');
-    const form = document.getElementById('leadForm');
-    const success = document.getElementById('successMessage');
-    let hasInteracted = false;
-
-    function setStatus(message) {
-      status.textContent = message || '';
-      if (message) window.setTimeout(() => { if (status.textContent === message) status.textContent = ''; }, 2600);
-    }
-
-    function toggleCard() {
-      const isFlipped = card.classList.toggle('is-flipped');
-      card.setAttribute('aria-pressed', String(isFlipped));
-      card.setAttribute('aria-label', isFlipped ? 'Torna al fronte della business card' : 'Gira la business card');
-      if (!hasInteracted) {
-        hasInteracted = true;
-        hint.classList.add('is-muted');
-        hint.textContent = '↻ Tocca la card';
-      }
-    }
-
-    function activateAction(action) {
-      if (action === 'form') {
-        openPanel();
-        return;
-      }
-      const messages = {
-        contact: 'Aggiunta ai contatti simulata. Qui collegheremo la vCard.',
-        message: 'Messaggio simulato. Qui collegheremo WhatsApp o canale diretto.',
-        call: 'Prenotazione simulata. Qui collegheremo il calendario.'
-      };
-      setStatus(messages[action]);
-    }
-
-    function openPanel() {
-      panel.classList.add('is-open');
-      panel.setAttribute('aria-hidden', 'false');
-      window.setTimeout(() => document.getElementById('firstName').focus(), 40);
-    }
-
-    function closeLeadPanel() {
-      panel.classList.remove('is-open');
-      panel.setAttribute('aria-hidden', 'true');
-      card.focus();
-    }
-
-    function buildLeadPayload(formData) {
-      return {
-        contact: {
-          firstName: formData.get('firstName')?.trim() || '',
-          lastName: formData.get('lastName')?.trim() || '',
-          email: formData.get('email')?.trim() || '',
-          phone: formData.get('phone')?.trim() || '',
-          company: formData.get('company')?.trim() || '',
-          role: formData.get('role')?.trim() || '',
-          profession: formData.get('profession')?.trim() || '',
-          website: formData.get('website')?.trim() || ''
-        },
-        metadata: { ...cardConfig }
-      };
-    }
-
-    card.addEventListener('click', (event) => {
-      if (event.target.closest('.action')) return;
-      toggleCard();
-    });
-
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        toggleCard();
-      }
-    });
-
-    document.querySelectorAll('.action').forEach((el) => {
-      const run = (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        activateAction(el.dataset.action);
-      };
-      el.addEventListener('click', run);
-      el.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' || event.key === ' ') run(event);
-      });
-    });
-
-    closePanel.addEventListener('click', closeLeadPanel);
-    panel.addEventListener('click', (event) => { if (event.target === panel) closeLeadPanel(); });
-    window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && panel.classList.contains('is-open')) closeLeadPanel(); });
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      success.classList.remove('is-visible');
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      const payload = buildLeadPayload(new FormData(form));
-      console.info('Simulated business-card lead payload', payload, { contactTemplate });
-      success.classList.add('is-visible');
-      form.reset();
-    });
+    const CONFIG={apiBaseUrl:"https://booking-backend-riccardoromano.vercel.app",cardContactEndpoint:"/api/card-contact"};
+    const track=(name)=>{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:name});};
+    track("card_view");
+    document.querySelectorAll("[data-track]").forEach(el=>el.addEventListener("click",()=>track(el.dataset.track)));
+    const card=document.getElementById("businessCard");let startX=0,startY=0;
+    function setFlip(force){const next=typeof force==="boolean"?force:!card.classList.contains("is-flipped");card.classList.toggle("is-flipped",next);card.setAttribute("aria-pressed",String(next));}
+    card.addEventListener("click",()=>setFlip());card.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();setFlip();}});
+    card.addEventListener("touchstart",e=>{const t=e.changedTouches[0];startX=t.clientX;startY=t.clientY;},{passive:true});
+    card.addEventListener("touchend",e=>{const t=e.changedTouches[0],dx=t.clientX-startX,dy=t.clientY-startY;if(Math.abs(dx)>48&&Math.abs(dx)>Math.abs(dy)*1.25){e.preventDefault();setFlip();}},{passive:false});
+    const toggle=document.getElementById("toggleContact"),panel=document.getElementById("contactPanel"),closeBtn=document.getElementById("closeContact"),form=document.getElementById("contactForm"),statusEl=document.getElementById("formStatus"),success=document.getElementById("successBox");
+    function setPanel(open){panel.classList.toggle("is-open",open);panel.setAttribute("aria-hidden",String(!open));toggle.setAttribute("aria-expanded",String(open));toggle.querySelector(".chev").textContent=open?"⌃":"⌄";if(open){track("contact_form_open");setTimeout(()=>document.getElementById("firstName").focus(),180);}}
+    toggle.addEventListener("click",()=>setPanel(!panel.classList.contains("is-open")));closeBtn.addEventListener("click",()=>setPanel(false));
+    form.addEventListener("submit",async e=>{e.preventDefault();statusEl.textContent="";const fd=new FormData(form);const firstName=(fd.get("firstName")||"").trim(),email=(fd.get("email")||"").trim(),phone=(fd.get("phone")||"").trim();if(!firstName){statusEl.textContent="Inserisci il nome.";return;}if(!email&&!phone){statusEl.textContent="Inserisci almeno email o telefono.";return;}const token=fd.get("cf-turnstile-response")||"";const payload={firstName,lastName:(fd.get("lastName")||"").trim(),email,phone,website:(fd.get("website")||"").trim(),turnstileToken:token,requestId:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+"-"+Math.random().toString(16).slice(2)),source:"business-card-ricky"};try{statusEl.textContent="Invio in corso...";const res=await fetch(CONFIG.apiBaseUrl+CONFIG.cardContactEndpoint,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const data=await res.json().catch(()=>({}));if(!res.ok||data.ok===false)throw new Error(data.status||"submit_failed");track("contact_submitted");form.reset();if(window.turnstile)turnstile.reset();setPanel(false);success.classList.add("is-visible");success.scrollIntoView({behavior:"smooth",block:"nearest"});}catch(err){statusEl.textContent="Invio non riuscito. Controlla i dati e riprova.";if(window.turnstile)turnstile.reset();}});
   </script>
 </body>
 </html>
